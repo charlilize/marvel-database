@@ -29,12 +29,13 @@ const ComicDetail = () => {
   }, [params.comicid]);
 
   return (
-    <div className="container text-black flex-col">
+    <div className="container text-white flex-col flex items-center p-[25px]">
       {fullDetails && fullDetails.data.results[0] ? (
         <>
-          <h1>{fullDetails.data.results[0].title}</h1>
+          <h1 className="text-3xl my-4 font-bold">{fullDetails.data.results[0].title}</h1>
           <img
             src={`${fullDetails.data.results[0].thumbnail.path}.${fullDetails.data.results[0].thumbnail.extension}`}
+            className="w-[325px] h-[400px] my-4"
           />
           <p>
             {fullDetails.data.results[0].textObjects[0]?.text.replace(
@@ -59,7 +60,7 @@ const ComicDetail = () => {
               <tr>
                 <th>Link to website</th>
                 <td>
-                  <a href={fullDetails.data.results[0].urls[0].url}>
+                  <a href={fullDetails.data.results[0].urls[0].url} className="underline">
                     http://marvel.com/comics/collection/
                     {fullDetails.data.results[0].issueNumber}
                   </a>

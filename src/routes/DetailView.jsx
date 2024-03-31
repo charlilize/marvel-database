@@ -2,7 +2,7 @@ import ComicDetail from "../Components/ComicDetail";
 
 const DetailView = () => {
     return (
-    <div>
+    <div className="bg-gray-800 rounded-lg">
       <ComicDetail/>
     </div>
     )
