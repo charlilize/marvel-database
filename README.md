@@ -2,7 +2,7 @@
 
 Submitted by: **Charlize Angeles**
 
-This web app: **Displays a Pie Chart of all the entire database's format type for each comic book. Each comic title is also clickable to display information on the comic: the number of pages, **
+This web app: **Displays a Pie Chart of all the entire database's format type for each comic book. Each comic title is also clickable to display information on the comic: the number of pages**
 
 Time spent: **8** hours spent in total
 
