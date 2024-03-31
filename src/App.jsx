@@ -4,6 +4,7 @@ import md5 from "md5";
 import ComicInfo from "./Components/ComicInfo.jsx";
 import DropDown from "./Components/DropDown.jsx";
 import Card from "./Components/Card.jsx"
+import FormatPieChart from "./Components/FormatPieChart.jsx";
 
 const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY;
 const PRIVATE_KEY = import.meta.env.VITE_PRIVATE_KEY;
@@ -56,10 +57,10 @@ const App = () => {
         const sumPrice = prices.reduce((acc, price) => acc + price, 0);
         return (sumPrice / prices.length).toFixed(2); // Return the average price rounded to 2 decimal places
       } else {
-        return "N/A";
+        return 0;
       }
     } else {
-      return "N/A";
+      return 0;
     }
   };
 
@@ -77,10 +78,10 @@ const App = () => {
         const sumPage = pages.reduce((acc, page) => acc + page, 0);
         return (sumPage / pages.length).toFixed(2); // Return the average price rounded to 2 decimal places
       } else {
-        return "N/A";
+        return 0;
       }
     } else {
-      return "N/A";
+      return 0;
     }
   };
 
@@ -117,6 +118,7 @@ const App = () => {
     }
   };
 
+  console.log(list)
   return (
     <div className="container">
       <h1 className="text-5xl font-bold font-sans">Super Comic Marvel Database</h1>
@@ -134,6 +136,12 @@ const App = () => {
           data={filteredResults && filteredResults.length > 0 ? Math.ceil(averagePage()) : 0}
           description="Average Pages"
         />
+
+        {list && 
+        <FormatPieChart
+          data={list}
+        />}
+
       </div>
 
       <div className="container flex justify-evenly flex-row h-[50px] my-5">

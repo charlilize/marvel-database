@@ -6,7 +6,7 @@ const Layout = () => {
       <nav style={{ position: "fixed", top: "0", right: "0", margin: "20px"}}>
         <ul>
           <li className="border-4 border-black border-solid rounded-lg" key="home-button">
-            <Link className="text-black p-5 " to="/">
+            <Link className="text-black p-5 text-lg" to="/">
               Home
             </Link>
           </li>
