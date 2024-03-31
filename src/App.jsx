@@ -127,11 +127,11 @@ const App = () => {
           description="Number of Results"
         />
         <Card
-          data={filteredResults ? "$" + String(averagePrice()) : "$0.00"}
+          data={filteredResults && filteredResults.length > 0 ? "$" + String(averagePrice()) : "$0.00"}
           description="Average Price"
         />
         <Card
-          data={filteredResults ? Math.ceil(averagePage()) : 0}
+          data={filteredResults && filteredResults.length > 0 ? Math.ceil(averagePage()) : 0}
           description="Average Pages"
         />
       </div>
@@ -154,6 +154,7 @@ const App = () => {
             ? filteredResults.map((comic) => (
                 <ComicInfo
                   key={comic.id}
+                  ID={comic.id}
                   thumbnail={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
                   title={comic.title}
                   price={comic.prices[0]?.price || "N/A"}
@@ -163,6 +164,7 @@ const App = () => {
               list.data.results.map((comic) => (
                 <ComicInfo
                   key={comic.id}
+                  ID={comic.id}
                   thumbnail={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
                   title={comic.title}
                   price={comic.prices[0]?.price || "N/A"}
