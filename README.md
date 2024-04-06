@@ -27,7 +27,8 @@ The following **additional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-![walkthrough](https://github.com/charlilize/data-dashboard-part2/assets/148724296/a9aff36f-d781-4ffd-a925-c21da9c67d25)
+![walkthrough](https://github.com/charlilize/data-dashboard-part2/assets/148724296/4221074c-a9e3-4ee5-abd7-1a33a9e8c2f7)
+
 
 
 <!-- Replace this with whatever GIF tool you used! -->
