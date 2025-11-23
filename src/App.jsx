@@ -3,7 +3,7 @@ import "./App.css";
 import md5 from "md5";
 import ComicInfo from "./Components/ComicInfo.jsx";
 import DropDown from "./Components/DropDown.jsx";
-import Card from "./Components/Card.jsx"
+import Card from "./Components/Card.jsx";
 import FormatPieChart from "./Components/FormatPieChart.jsx";
 
 const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY;
@@ -38,9 +38,11 @@ const App = () => {
 
   const searchItems = (searchValue) => {
     setSearchTitle(searchValue);
-    setFilteredResults(list.data.results.filter((comic) => (
-      comic.title.toLowerCase().includes(searchValue.toLowerCase())
-    )))
+    setFilteredResults(
+      list.data.results.filter((comic) =>
+        comic.title.toLowerCase().includes(searchValue.toLowerCase())
+      )
+    );
   };
 
   const averagePrice = () => {
@@ -52,7 +54,7 @@ const App = () => {
         }
         return acc;
       }, []);
-  
+
       if (prices.length > 0) {
         const sumPrice = prices.reduce((acc, price) => acc + price, 0);
         return (sumPrice / prices.length).toFixed(2); // Return the average price rounded to 2 decimal places
@@ -87,7 +89,7 @@ const App = () => {
 
   const searchByFormat = (userFormat) => {
     setSearchFormat(userFormat);
-  
+
     if (userFormat === "Any") {
       if (searchTitle) {
         setFilteredResults(
@@ -100,7 +102,7 @@ const App = () => {
       }
       return;
     }
-  
+
     if (searchTitle) {
       setFilteredResults(
         filteredResults.filter(
@@ -118,10 +120,18 @@ const App = () => {
     }
   };
 
-  console.log(list)
+  //console.log(list)
   return (
     <div className="container">
-      <h1 className="text-5xl font-bold font-sans">Super Comic Marvel Database</h1>
+      <div className="bg-red-400 p-5 mb-5 rounded-full">
+        <p className="font-bold">
+          NOTICE: Marvel has depreciated this API. As a result, the live version
+          of this project is no longer functional.
+        </p>
+      </div>
+      <h1 className="text-5xl font-bold font-sans">
+        Super Comic Marvel Database
+      </h1>
 
       <div className="container flex justify-center gap-10 mt-10">
         <Card
@@ -129,19 +139,23 @@ const App = () => {
           description="Number of Results"
         />
         <Card
-          data={filteredResults && filteredResults.length > 0 ? "$" + String(averagePrice()) : "$0.00"}
+          data={
+            filteredResults && filteredResults.length > 0
+              ? "$" + String(averagePrice())
+              : "$0.00"
+          }
           description="Average Price"
         />
         <Card
-          data={filteredResults && filteredResults.length > 0 ? Math.ceil(averagePage()) : 0}
+          data={
+            filteredResults && filteredResults.length > 0
+              ? Math.ceil(averagePage())
+              : 0
+          }
           description="Average Pages"
         />
 
-        {list && 
-        <FormatPieChart
-          data={list}
-        />}
-
+        {list && <FormatPieChart data={list} />}
       </div>
 
       <div className="container flex justify-evenly flex-row h-[50px] my-5">
@@ -151,9 +165,7 @@ const App = () => {
           placeholder="Search for a Comic..."
           onChange={(inputString) => searchItems(inputString.target.value)}
         />
-        <DropDown
-          currentFormat={searchByFormat}
-        />      
+        <DropDown currentFormat={searchByFormat} />
       </div>
 
       <div className="border-solid border-gray-500 border rounded-lg overflow-scroll h-[1000px] bg-gray-800 text-white">
@@ -180,7 +192,6 @@ const App = () => {
               ))}
         </ul>
       </div>
-
     </div>
   );
 };
